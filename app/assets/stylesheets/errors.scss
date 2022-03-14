@@ -1,0 +1,17 @@
+.field_with_errors {
+    input{
+        border-color: red;
+    }
+
+    label {
+        font-style: italic;
+    }
+
+}
+
+.divErro {
+    background-color: aqua;
+    border-color: blue;
+    border: 10px
+}
+

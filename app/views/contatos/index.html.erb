@@ -1,0 +1,45 @@
+<h1>Lista de Contatos</h1>
+
+<%= link_to 'Novo contato', new_contato_path %>
+<hr>
+
+<% if @contatos.any?  %>
+    <table class="tabela_lista">
+        <thead>
+            <tr>
+                <th class='colunaID'>ID</th>
+                <th>Nome</th>
+                <th>Email</th>
+                <th> <%= image_tag 'page_edit.png' %> </th>
+                <th> <%= image_tag 'cancel.png' %> </th>
+            </tr>
+        </thead>
+        <tbody>
+            <% @contatos.each do |contatos|  %>
+                <tr>
+                    <td class="dadosColunaID"><%= contatos.id %></td>
+                    <td><%= link_to(contatos.nome, contato_path(contatos.id)) %></td>
+                    <td><%= contatos.email %></td>
+                    <td><%= link_to('Editar', edit_contato_path(contatos.id)) %></td>
+                    <td><%= link_to('Excluir', contato_path(contatos.id), method: :delete, confirm: 'Vocẽ tem certeza que deseja excluir ?') %></td>
+                </tr>
+            <% end  %>
+        </tbody>
+    </table>
+<% else  %>
+    <h2> Não há contatos cadastrados para o usuário logado. </h2>
+<% end  %>
+
+<hr>
+<br>
+
+
+<div>
+    <%= link_to 'Retornar usuários', usuarios_path, class: 'botaoUsuarios'  %>
+    <%= link_to 'Sair do sistema', logout_path, class: 'botaoCancelar'  %>
+</div>
+
+
+
+
+

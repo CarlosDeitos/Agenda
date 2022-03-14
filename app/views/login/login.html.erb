@@ -1,0 +1,21 @@
+<%= javascript_tag 'window.onload = function () { document.getElementById("login").focus();}'  %>
+<h1>Bem vindo a Agenda</h1>
+<hr>
+
+<%= form_tag logar_path do  %>
+    <div>
+        <div> <%= label_tag :login, 'login'  %> </div>
+        <div> <%= text_field_tag :login  %> </div>
+    </div>
+
+    <div>
+        <div> <%= label_tag :senha, 'Senha'  %> </div>
+        <div> <%= password_field_tag :senha  %> </div>
+    </div>
+
+    <hr>
+
+    <div>
+        <%= submit_tag 'Entrar', class: 'botaoSalvar' %>
+    </div>
+<% end  %>

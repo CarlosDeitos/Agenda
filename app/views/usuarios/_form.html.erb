@@ -1,0 +1,46 @@
+<%= javascript_tag 'window.onload = function () { document.getElementById("campoNome").focus();}'  %>
+<hr>
+
+<% if @usuario.errors.any? %>
+    <% @usuario.errors.full_messages.each do |erro|  %>
+        <div class="divErro">
+            <ul>  
+                <li> <%= erro.gsub('Nova senha', '') %> </li>
+            </ul>    
+        </div>    
+    <% end %>
+<% end %>
+<%= form_for @usuario do |f|  %>
+    <div>
+        <div> <%= f.label :nome, 'Nome'  %> </div>
+        <div> <%= f.text_field :nome, class: 'inputUpper', autocomplete: "off", id: 'campoNome'  %> </div>
+    </div>
+
+    <div>
+        <div> <%= f.label :email, 'Email'  %> </div>
+        <div> <%= f.text_field :email, autocomplete: "off"   %> </div>
+    </div>
+
+    <div>
+        <div> <%= f.label :login, 'Login'  %> </div>
+        <div> <%= f.text_field :login,  class: 'inputUpper', autocomplete: "off"  %> </div>
+    </div> 
+
+    <div>
+        <div> <%= f.label :nova_senha, 'Senha'  %> </div>
+        <div> <%= f.password_field :nova_senha, autocomplete: "off"   %> </div>
+    </div>
+
+    <div>
+        <div> <%= f.label :confirma_senha, 'Confirmar senha'  %> </div>
+        <div> <%= f.password_field :confirma_senha, autocomplete: "off"   %> </div>
+    </div>
+
+    <hr>
+
+    <div>
+        <%= f.submit 'Salvar', class: 'botaoSalvar' %>
+        <%= link_to 'Cancelar', usuarios_path, class: 'botaoCancelar' %>
+    </div>
+<% end  %>
+

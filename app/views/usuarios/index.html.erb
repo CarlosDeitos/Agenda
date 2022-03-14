@@ -1,0 +1,49 @@
+<h1>Lista de usuários</h1>
+
+<%= link_to 'Usuários', usuarios_path %>  | 
+<%= link_to 'Contatos', contatos_path %> <br><br>
+
+
+<%= link_to 'Novo usuário', new_usuario_path %>
+<hr>
+
+<% if @usuarios.any?  %>
+    <table class="tabela_lista">
+        <thead>
+            <tr>
+                <th class='colunaID'>ID</th>
+                <th>Nome</th>
+                <th>Email</th>
+                <th>Login</th>
+                <th> <%= image_tag 'page_edit.png' %> </th>
+                <th> <%= image_tag 'cancel.png' %> </th>
+            </tr>
+        </thead>
+        <tbody>
+            <% @usuarios.each do |usuarios|  %>
+                <tr>
+                    <td class="dadosColunaID"><%= usuarios.id %></td>
+                    <td><%= link_to(usuarios.nome, usuario_path(usuarios.id)) %></td>
+                    <td><%= usuarios.email %></td>
+                    <td><%= usuarios.login %></td>
+                    <td><%= link_to('Editar', edit_usuario_path(usuarios.id)) %></td>
+                    <td><%= link_to('Excluir', usuario_path(usuarios.id), method: :delete, confirm: 'Vocẽ tem certeza que deseja excluir ?') %></td>
+                </tr>
+            <% end  %>
+        </tbody>
+    </table>
+<% else  %>
+    <h2> Não há usuários cadastrados. </h2>
+<% end  %>
+
+<hr>
+<br>
+
+<div>
+    <%= link_to 'Sair do sistema', logout_path, class: 'botaoCancelar'  %>
+</div>
+
+
+
+
+

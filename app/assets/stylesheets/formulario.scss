@@ -1,0 +1,57 @@
+.botaoSalvar {
+    background-color: rgb(5, 78, 235);
+    color: white;
+    font: 20px normal Arial;
+    border-radius: 5px;
+    border-color: rgb(5, 78, 235);
+    width: 100px;
+    padding: 8px;
+}
+
+
+input {
+    padding: 5px;
+}
+
+input:focus{
+    background-color: rgb(160, 183, 224);
+}
+
+.inputUpper{
+    text-transform: uppercase;
+}
+
+.tituloNew {
+    border-color: blue;
+    background-color: rgb(125, 125, 170);
+    text-align: left;
+    font: 30px nomral Arial;
+}
+
+
+.botaoCancelar {
+    background-color: rgb(245, 52, 52);
+    font: 20px normal Arial;
+    border-radius: 5px;
+    border-color: rgb(5, 235, 204);
+    color: white;
+    padding: 10px;
+    text-decoration: none;
+    box-shadow: 0 2px 0 rgba(0, 0, 0, .3), 0 2px 7px rgba(0, 0, 0, 0.2);
+}
+
+
+.botaoUsuarios {
+    background-color: rgb(21, 83, 2);
+    font: 20px normal Arial;
+    border-radius: 5px;
+    border-color: rgb(5, 235, 204);
+    color: white;
+    padding: 10px;
+    text-decoration: none;
+    box-shadow: 0 2px 0 rgba(0, 0, 0, .3), 0 2px 7px rgba(0, 0, 0, 0.2);
+}
+
+label {
+    font-weight: bold;
+}

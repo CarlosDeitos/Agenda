@@ -1,0 +1,15 @@
+<h1> Dados do telefone do contato
+<hr>
+
+<ul>
+    <li>Nome:  <%= @usuario.nome %></li>
+    <li>Email: <%= @usuario.email %></li>
+    <li>Login: <%= @usuario.login %></li>
+</ul>
+
+<hr>
+<br>
+
+<div>
+    <%= link_to 'Voltar', usuarios_path, class: 'botaoCancelar' %>
+</div>

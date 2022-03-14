@@ -1,0 +1,15 @@
+<h1> Dados do contato (ID: <%= @contato.id %>) </h1>
+<hr>
+
+<ul>
+    <li>Nome:  <%= @contato.nome %></li>
+    <li>Email: <%= @contato.email %></li>
+</ul>
+
+<hr>
+<br>
+
+<div>
+    <%= link_to 'Voltar',        contatos_path, class: 'botaoCancelar' %>
+    <%= link_to 'Novo Telefone', new_contato_telefone_path(@contato.id), class: 'botaoUsuarios' %>
+</div>

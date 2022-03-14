@@ -1,0 +1,22 @@
+<%= javascript_tag 'window.onload = function () { document.getElementById("campoNumFone").focus();}'  %>
+<hr>
+
+<%= form_for @telefone, url: contato_telefones_path() do |f|  %>
+    <div>
+        <div> <%= f.label :numero, 'Telefone'  %> </div>
+        <div> <%= f.text_field :numero, class: 'inputUpper', autocomplete: "off", id: 'campoNumFone'  %> </div>
+    </div>
+
+    <div>
+        <div> <%= f.label :principal, 'Principal'  %> </div>
+        <div> <%= f.check_box :principal, autocomplete: "off"   %> </div>
+    </div>
+
+    <hr>
+
+    <div>
+        <%= f.submit 'Salvar', class: 'botaoSalvar' %>
+        <%= link_to 'Cancelar', contato_path(params[:contato_id]), class: 'botaoCancelar' %>
+    </div>
+<% end  %>
+

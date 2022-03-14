@@ -1,0 +1,23 @@
+development:
+  adapter: postgresql
+  encoding: unicode
+  database: agenda_development
+  pool: 5
+  username: postgres
+  password: postgres
+  
+test:
+  adapter: postgresql
+  encoding: unicode
+  database: agenda_test
+  pool: 5
+  username: postgres
+  password: postgres
+
+production:
+  adapter: postgresql
+  encoding: unicode
+  database: agenda_production
+  pool: 5
+  username: agenda
+  password:
