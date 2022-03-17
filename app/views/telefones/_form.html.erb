@@ -1,9 +1,23 @@
 <%= javascript_tag 'window.onload = function () { document.getElementById("campoNumFone").focus();}'  %>
 <hr>
 
+<% if @telefone.errors.any? %>
+    <% @telefone.errors.full_messages.each do |erro| %>
+        <div class="divErro">
+            <ul>  
+               <% if erro.include?('válido') %>
+                  <li> Número do telefone inválido </li>  
+               <% else  %>
+                  <li> <%= erro %> </li>
+               <% end  %>
+            </ul>    
+        </div>  
+    <% end %>
+<% end  %>
+
 <%= form_for @telefone, url: contato_telefones_path() do |f|  %>
     <div>
-        <div> <%= f.label :numero, 'Telefone'  %> </div>
+        <div> <%= f.label :numero, 'Telefone (xx)-xxxxx-xxxx'  %> </div>
         <div> <%= f.text_field :numero, class: 'inputUpper', autocomplete: "off", id: 'campoNumFone'  %> </div>
     </div>
 
@@ -15,8 +29,8 @@
     <hr>
 
     <div>
+        <%= link_to 'Voltar', contato_path(params[:contato_id]), class: 'botaoCancelar' %>
         <%= f.submit 'Salvar', class: 'botaoSalvar' %>
-        <%= link_to 'Cancelar', contato_path(params[:contato_id]), class: 'botaoCancelar' %>
     </div>
 <% end  %>
 

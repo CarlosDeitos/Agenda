@@ -13,3 +13,11 @@
     <%= link_to 'Voltar',        contatos_path, class: 'botaoCancelar' %>
     <%= link_to 'Novo Telefone', new_contato_telefone_path(@contato.id), class: 'botaoUsuarios' %>
 </div>
+
+
+<hr>
+<% if @telefones.any?  %>
+    <% @telefones.each do |t| %>
+        <div> <%= t.numero %> </div>
+    <% end  %>
+<% end  %>

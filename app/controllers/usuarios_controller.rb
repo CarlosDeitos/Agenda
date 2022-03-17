@@ -25,7 +25,7 @@ class UsuariosController < ApplicationController
 
     def edit
         @usuario = Usuario.find_by_id(params[:id])
-        redirect_to usuarios_path unless @usuario 
+        redirect_to usuarios_path unless @usuario
     end
 
     def update
