@@ -1,6 +1,10 @@
 class ContatosController < ApplicationController
     def index
-        @contatos = @usuario_logado.contatos
+        # @contatos = @usuario_logado.contatos.includes(:telefones).joins(:telefones).where('telefones.principal = true')
+        @contatos = @usuario_logado.contatos.select('contatos.id, contatos.nome, contatos.email, telefones.numero as numero').joins('LEFT JOIN telefones ON telefones.contato_id = contatos.id').where(telefones: {principal: true})        
+
+        # Debug
+        # binding.pry
     end
 
     def new
@@ -9,6 +13,7 @@ class ContatosController < ApplicationController
 
     def show
         @contato = @usuario_logado.contatos.find_by_id(params[:id])
+        @telefones = @contato.telefones.order(:numero)
     end
 
     def create

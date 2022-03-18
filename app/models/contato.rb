@@ -23,4 +23,5 @@ class Contato < ActiveRecord::Base
         return if (self.nome != 'TESTE')
         self.errors.add(:nome, 'Nome inválido.')        
     end
+
 end

@@ -1,0 +1,31 @@
+<% if @telefones.any? %>
+    <table class="tabela_lista">
+        <thead>
+            <tr>
+                <th>Numero</th>
+                <th>Principal</th>
+                <th> <%= image_tag 'page_edit.png' %> </th>
+                <th> <%= image_tag 'cancel.png' %> </th>
+            </tr>
+        </thead>
+        <tbody>
+            <% @telefones.each do |t|  %>
+                <% if t.principal? %>
+                  <tr class='tr_destaque'>
+                <%else  %>
+                  <tr>
+                <% end %>
+                    <td><%= t.numero %></td>
+                    <td><%= t.principal ? 'Sim' : 'Não' %></td>
+                    <td><%= link_to('Editar', edit_contato_telefone_path(t.contato.id, t.id)) %></td>
+                    <td><%= link_to('Excluir', contato_telefone_path(t.contato.id, t.id), method: :delete, confirm: 'Confirma a exclusão do telefone ?') %></td>
+                </tr>
+            <% end %>
+        </tbody>
+    </table>
+<% else  %>
+   <div class='divErro'> Nenhum telefone cadastrado </div>
+<% end  %>
+
+
+

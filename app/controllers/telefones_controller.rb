@@ -1,6 +1,6 @@
 class TelefonesController < ApplicationController
     def index
-
+        @telefones = @usuario_logado.contatos.find_by_id(params[:contato_id]).telefones
     end
 
     def new
@@ -20,11 +20,21 @@ class TelefonesController < ApplicationController
     end
 
     def edit
+        @telefone = @usuario_logado.contatos.find_by_id(params[:contato_id]).telefones.find_by_id(params[:id])
     end    
 
     def update
+        @telefone = @usuario_logado.contatos.find_by_id(params[:contato_id]).telefones.find_by_id(params[:id])
+        if @telefone.update_attributes(params[:telefone])
+           redirect_to contato_path(params[:contato_id]) 
+        else
+           render 'edit' 
+        end    
     end
 
     def destroy
+        @telefone = @usuario_logado.contatos.find_by_id(params[:contato_id]).telefones.find_by_id(params[:id])
+        @telefone.destroy
+        redirect_to contato_path(params[:contato_id]) 
     end
 end

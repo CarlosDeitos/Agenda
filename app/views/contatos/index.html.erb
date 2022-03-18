@@ -10,6 +10,7 @@
                 <th class='colunaID'>ID</th>
                 <th>Nome</th>
                 <th>Email</th>
+                <th>Fone principal</th>
                 <th> <%= image_tag 'page_edit.png' %> </th>
                 <th> <%= image_tag 'cancel.png' %> </th>
             </tr>
@@ -20,6 +21,7 @@
                     <td class="dadosColunaID"><%= contatos.id %></td>
                     <td><%= link_to(contatos.nome, contato_path(contatos.id)) %></td>
                     <td><%= contatos.email %></td>
+                    <td><%= contatos.numero %></td>
                     <td><%= link_to('Editar', edit_contato_path(contatos.id)) %></td>
                     <td><%= link_to('Excluir', contato_path(contatos.id), method: :delete, confirm: 'Vocẽ tem certeza que deseja excluir ?') %></td>
                 </tr>
