@@ -1,6 +1,8 @@
 class TelefonesController < ApplicationController
     def index
-        @telefones = @usuario_logado.contatos.find_by_id(params[:contato_id]).telefones
+        @contato = @usuario_logado.contatos.find_by_id(params[:contato_id])
+        @telefones = @contato.telefones.order(:numero)
+        @escondeEditarExcluir = 0
     end
 
     def new

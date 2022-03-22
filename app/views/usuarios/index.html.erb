@@ -21,7 +21,11 @@
         </thead>
         <tbody>
             <% @usuarios.each do |usuarios|  %>
+                <% if @usuario_logado.id == usuarios.id  %>
+                <tr class='tr_destaque'>
+                <% else %>
                 <tr>
+                <% end %>
                     <td class="dadosColunaID"><%= usuarios.id %></td>
                     <td><%= link_to(usuarios.nome, usuario_path(usuarios.id)) %></td>
                     <td><%= usuarios.email %></td>

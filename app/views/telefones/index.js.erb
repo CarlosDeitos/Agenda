@@ -1,0 +1,13 @@
+if ($('#telefones_<%=@contato.id%>').length == 0) {
+   <% @escondeEditarExcluir = 1%>
+   $('#linha_<%= @contato.id %>').after('<tr id="telefones_<%=@contato.id%>"><td colspan=7><%=j render('contatos/indextelefones') %> </td></tr>')
+   $('.tr_normal').css('background', 'white')
+   $('.tr_normal').hover(function(){$(this).css('background', 'rgb(156, 224, 224)')}, function(){$(this).css('background', 'white')},)
+}
+else {
+   $('#telefones_<%=@contato.id%>').remove();
+}
+
+
+
+

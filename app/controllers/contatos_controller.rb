@@ -1,11 +1,24 @@
 class ContatosController < ApplicationController
     def index
-        # @contatos = @usuario_logado.contatos.includes(:telefones).joins(:telefones).where('telefones.principal = true')
-        @contatos = @usuario_logado.contatos.select('contatos.id, contatos.nome, contatos.email, telefones.numero as numero').joins('LEFT JOIN telefones ON telefones.contato_id = contatos.id').where(telefones: {principal: true})        
-
+        @contatos = @usuario_logado.contatos.join_telefone_principal
+        @via_pesquisa = 0
         # Debug
         # binding.pry
     end
+
+    def pesquisar
+        if params[:contato_nome] != ''
+            if params[:contato_nome].include?(' ')
+               @contatos = @usuario_logado.contatos.join_telefone_principal.pesquisa_por_nome(params[:contato_nome].upcase)
+            else   
+               @contatos = @usuario_logado.contatos.join_telefone_principal.pesquisa_por_nome_parcial(params[:contato_nome].upcase) 
+            end  
+        else
+            @contatos = @usuario_logado.contatos.join_telefone_principal
+        end    
+        @via_pesquisa = 1
+        render "index"
+    end   
 
     def new
         @contato = @usuario_logado.contatos.new

@@ -1,4 +1,3 @@
-<%= javascript_tag 'window.onload = function () { document.getElementById("campoNumFone").focus();}'  %>
 <hr>
 
 <% if @telefone.errors.any? %>
@@ -20,7 +19,7 @@
 <%= form_for @telefone, url: url do |f|  %>
     <div>
         <div> <%= f.label :numero, 'Telefone (xx)-xxxxx-xxxx'  %> </div>
-        <div> <%= f.text_field :numero, class: 'inputUpper', autocomplete: "off", id: 'campoNumFone', maxlength: "15"  %> </div>
+        <div> <%= f.text_field :numero, class: 'numero_telefone', autocomplete: "off", id: 'numero_telefone', maxlength: "15", autofocus: :true  %> </div>
     </div>
 
     <div>
@@ -36,3 +35,6 @@
     </div>
 <% end  %>
 
+<script>
+    Mascara.aplica_mascara_telefone();
+</script>

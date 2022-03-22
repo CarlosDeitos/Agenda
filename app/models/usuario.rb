@@ -11,13 +11,17 @@ class Usuario < ActiveRecord::Base
 
     validates :email, format: /^([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})$/i
 
-    validate :valida_senha
+    validate :valida_senha, :upper_campos
 
     before_save :criptografa_senha
 
     has_many :contatos, dependent: :destroy  #relação entre os modelos
 
     private
+
+    def upper_campos
+        self.nome = self.nome.upcase
+    end    
 
     def criptografa_senha
         return if self.nova_senha.blank?

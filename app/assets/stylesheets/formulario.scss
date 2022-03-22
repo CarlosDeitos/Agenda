@@ -40,6 +40,17 @@ input:focus{
     box-shadow: 0 2px 0 rgba(0, 0, 0, .3), 0 2px 7px rgba(0, 0, 0, 0.2);
 }
 
+.botaoPesquisar {
+    background-color: rgb(124, 151, 1);
+    font: 15px normal Arial;
+    border-radius: 5px;
+    border-color: rgb(0, 7, 6);
+    color: white;
+    padding: 3px;
+    text-decoration: none;
+    box-shadow: 0 2px 0 rgba(0, 0, 0, .3), 0 2px 7px rgba(0, 0, 0, 0.2);
+}
+
 
 .botaoUsuarios {
     background-color: rgb(21, 83, 2);
@@ -54,4 +65,9 @@ input:focus{
 
 label {
     font-weight: bold;
+}
+
+#label_pesquisa {
+    font-weight: normal;
+    font-size: 15px;
 }

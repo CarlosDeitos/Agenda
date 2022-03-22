@@ -1,8 +1,6 @@
 class UsuariosController < ApplicationController
-
-
     def index
-        @usuarios = Usuario.all
+        @usuarios = Usuario.order(:nome)
     end    
 
     def new

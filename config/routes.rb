@@ -22,4 +22,6 @@ Agenda::Application.routes.draw do
   resources :contatos do 
     resources :telefones #ficam aninhados com os contatos
   end  
+
+  post  '/contatos/buscar_Contato',  to: 'contatos#pesquisar',   as: :buscar_contato_usuario
 end

@@ -1,0 +1,7 @@
+<%= form_tag buscar_contato_usuario_path do  %>
+    <div>
+        <div> <%= label_tag :contato_nome, 'Nome do contato para pesquisa', id: 'label_pesquisa'  %> </div>
+        <div> <%= text_field_tag :contato_nome  %>
+        <%= submit_tag 'Pesquisar',  class: 'botaoPesquisar' %> </div>
+    </div>
+<% end  %>

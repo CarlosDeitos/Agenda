@@ -15,5 +15,8 @@
 </div>
 <br>
 <hr>
-<h1> Telefones do contato </h1> <div> (<%= @telefones.count %> numeros ) </div>
+<h1> Telefones do contato </h1>
+<% if @telefones.count > 0  %>
+    <div> (<%= @telefones.count %> numeros ) </div>
+<% end  %>
 <%= render 'indextelefones' %>

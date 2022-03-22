@@ -1,4 +1,4 @@
-<%= javascript_tag 'window.onload = function () { document.getElementById("campoNome").focus();}'  %>
+<!--  <%= javascript_tag 'window.onload = function () { document.getElementById("campoNome").focus();}'  %>   -->
 <hr>
 
 <% if @usuario.errors.any? %>
@@ -13,7 +13,7 @@
 <%= form_for @usuario do |f|  %>
     <div>
         <div> <%= f.label :nome, 'Nome'  %> </div>
-        <div> <%= f.text_field :nome, class: 'inputUpper', autocomplete: "off", id: 'campoNome'  %> </div>
+        <div> <%= f.text_field :nome, class: 'inputUpper', autocomplete: "off", id: 'campoNome', autofocus: :true  %> </div>
     </div>
 
     <div>
@@ -39,8 +39,8 @@
     <hr>
 
     <div>
+        <%= link_to 'Voltar', usuarios_path, class: 'botaoCancelar' %>
         <%= f.submit 'Salvar', class: 'botaoSalvar' %>
-        <%= link_to 'Cancelar', usuarios_path, class: 'botaoCancelar' %>
     </div>
 <% end  %>
 

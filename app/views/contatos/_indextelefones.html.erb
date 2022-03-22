@@ -1,11 +1,13 @@
 <% if @telefones.any? %>
-    <table class="tabela_lista">
+    <table class="tabela_fones">
         <thead>
             <tr>
                 <th>Numero</th>
                 <th>Principal</th>
-                <th> <%= image_tag 'page_edit.png' %> </th>
-                <th> <%= image_tag 'cancel.png' %> </th>
+                <% if @escondeEditarExcluir != 1  %>
+                    <th> <%= image_tag 'page_edit.png' %> </th>
+                    <th> <%= image_tag 'cancel.png' %> </th>
+                <% end  %>
             </tr>
         </thead>
         <tbody>
@@ -13,12 +15,14 @@
                 <% if t.principal? %>
                   <tr class='tr_destaque'>
                 <%else  %>
-                  <tr>
+                  <tr class='tr_normal'>
                 <% end %>
                     <td><%= t.numero %></td>
                     <td><%= t.principal ? 'Sim' : 'Não' %></td>
-                    <td><%= link_to('Editar', edit_contato_telefone_path(t.contato.id, t.id)) %></td>
-                    <td><%= link_to('Excluir', contato_telefone_path(t.contato.id, t.id), method: :delete, confirm: 'Confirma a exclusão do telefone ?') %></td>
+                    <% if @escondeEditarExcluir != 1 %>
+                        <td><%= link_to('Editar', edit_contato_telefone_path(t.contato.id, t.id)) %></td>
+                        <td><%= link_to('Excluir', contato_telefone_path(t.contato.id, t.id), method: :delete, confirm: 'Confirma a exclusão do telefone ?') %></td>
+                    <% end  %>
                 </tr>
             <% end %>
         </tbody>

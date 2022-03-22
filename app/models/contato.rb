@@ -15,6 +15,12 @@ class Contato < ActiveRecord::Base
 
     validate :nomes_invalidos
 
+    scope :join_telefone_principal, select('contatos.id, contatos.nome, contatos.email, telefones.numero').joins('LEFT JOIN telefones ON telefones.contato_id = contatos.id and telefones.principal = true').order(:nome)
+    scope :pesquisa_por_nome, -> (contato_nome) { where('contatos.nome = ?', contato_nome)}
+    scope :pesquisa_por_nome_parcial, -> (contato_nome) { where('contatos.nome like ?',  '%' + contato_nome + '%' )}
+
+    # scope :ordenar_por_id, order(:id)
+
     def upper_campos
         self.nome = self.nome.upcase
     end
@@ -25,3 +31,4 @@ class Contato < ActiveRecord::Base
     end
 
 end
+

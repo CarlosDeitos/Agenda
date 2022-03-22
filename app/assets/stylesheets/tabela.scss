@@ -1,4 +1,4 @@
-.tabela_lista{
+.tabela_lista, .tabela_fones{
     width: 100%;
     border-collapse: collapse;
     th, td {
@@ -28,3 +28,51 @@ tr:hover{
     background-color: rgb(238, 228, 137);
 }
 
+.tabela_lista td:nth-child(1){
+    width: 5%;
+}
+
+.tabela_lista td:nth-child(2){
+    width: 35%;
+}
+
+.tabela_lista td:nth-child(3){
+    width: 25%;
+}
+
+.tabela_lista td:nth-child(4){
+    width: 25%;
+}
+
+.tabela_lista td:nth-child(5){
+    width: 5%;
+}
+
+.tabela_lista td:nth-child(6){
+    width: 5%;
+}
+
+
+.tabela_fones td:nth-child(1){
+    width: 50%;
+}
+
+.tabela_fones td:nth-child(2){
+    width: 30%;
+}
+
+.tabela_fones td:nth-child(3){
+    width: 10%;
+}
+
+.tabela_fones td:nth-child(4){
+    width: 10%;
+}
+
+.lupa{
+    width: 20px;
+}
+
+.div_teste{
+    width: 900px;
+}
